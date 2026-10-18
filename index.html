@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#176b52">
+  <meta name="description" content="Compara precios por unidad, incluso sin conexión.">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Comparador de precios</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top">
+      <div class="brand-icon" aria-hidden="true">₱</div>
+      <div>
+        <h1>Comparador de precios</h1>
+        <p class="subtitle">Encuentra el menor costo por unidad</p>
+      </div>
+      <span id="connection" class="status" aria-live="polite">● Offline listo</span>
+    </header>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Tu comparación</h2>
+        <button id="clear" class="button secondary small" type="button">Limpiar</button>
+      </div>
+      <label class="field-label" for="count">¿Cuántos productos comparar?</label>
+      <div class="segmented" role="group" aria-label="Número de productos">
+        <button type="button" data-count="2">2</button>
+        <button type="button" data-count="3" class="selected">3</button>
+        <button type="button" data-count="4">4</button>
+      </div>
+
+      <label class="field-label" for="unit">Unidad de medida para todos</label>
+      <select id="unit">
+        <option value="g">Gramos (g)</option>
+        <option value="kg">Kilogramos (kg)</option>
+        <option value="ml">Mililitros (ml)</option>
+        <option value="L">Litros (L)</option>
+        <option value="piezas">Piezas</option>
+      </select>
+      <p class="hint">Usa la misma unidad en todos los productos. No mezcles gramos con mililitros.</p>
+
+      <div id="products" class="products"></div>
+      <div id="result" class="result" aria-live="polite">
+        <div class="result-label">PRODUCTO MÁS BARATO</div>
+        <h2>Introduce tus datos</h2>
+        <p>El resultado aparecerá aquí automáticamente.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Historial local</h2>
+          <p class="hint no-margin">Se guarda solo en este dispositivo.</p>
+        </div>
+        <button id="clear-history" class="button secondary small" type="button">Borrar</button>
+      </div>
+      <button id="save-comparison" class="button primary full" type="button">Guardar comparación actual</button>
+      <div id="history" class="history"></div>
+    </section>
+
+    <footer>
+      <p>Funciona sin conexión después de instalarse. Tus datos no se envían a ningún servidor.</p>
+      <button id="install" class="button secondary full hidden" type="button">Instalar app</button>
+      <p class="version">Comparador de precios · versión 1.0</p>
+    </footer>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
